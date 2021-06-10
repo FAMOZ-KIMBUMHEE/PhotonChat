@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Chat;
 using UnityEngine.UI;
 using ExitGames.Client.Photon;
+using Photon.Pun;
 
 public class ChatManager : MonoBehaviour, IChatClientListener
 {
@@ -21,6 +22,7 @@ public class ChatManager : MonoBehaviour, IChatClientListener
     public GameObject userNameBox;
     public GameObject chatBox;
 
+    [SerializeField] BanManager banManager;
 
     void Start()
     {
@@ -44,6 +46,7 @@ public class ChatManager : MonoBehaviour, IChatClientListener
     public void SetUserName()
     {
         userName = nameinputField.text;
+        PhotonNetwork.LocalPlayer.NickName = userName;
 
         NextChat();
 
@@ -131,7 +134,16 @@ public class ChatManager : MonoBehaviour, IChatClientListener
         //messages = 내용
         for (int i = 0; i < messages.Length; i++)
         {
-            AddLine(string.Format("{0} : {1}", senders[i], messages[i].ToString()));
+            if (senders[i] != banManager.GetBanPlayer().NickName)
+            {
+                AddLine(string.Format("{0} : {1}", senders[i], messages[i].ToString()));
+
+            }
+            else
+            {
+                AddLine("채팅이 차단되었습니다.");
+            }
+
         }
     }
 
