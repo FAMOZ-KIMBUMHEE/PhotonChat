@@ -276,11 +276,11 @@
     <Reference Include="UnityEditor">
       <HintPath>C:/UnityEditor/2019.4.12f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="websocket-sharp">
-      <HintPath>C:/UnityProject/Git/05.Photon/PhotonChat/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
-    </Reference>
     <Reference Include="Photon3Unity3D">
       <HintPath>C:/UnityProject/Git/05.Photon/PhotonChat/Assets/Photon/PhotonLibs/netstandard2.0/Photon3Unity3D.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>C:/UnityProject/Git/05.Photon/PhotonChat/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/UnityEditor/2019.4.12f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -656,10 +656,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="PhotonWebSocket.csproj">
-      <Project>{CEDF9D07-1717-2826-8506-FA088E48A871}</Project>
-      <Name>PhotonWebSocket</Name>
-    </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj">
       <Project>{F6B2BA1D-BCEF-A5F2-34CA-DE1836EA7E87}</Project>
       <Name>PhotonUnityNetworking.Utilities.PhotonPlayer.Editor</Name>
@@ -680,6 +676,10 @@
       <Project>{9C9E48AA-E05E-D03B-579E-CE93B28CBF40}</Project>
       <Name>PhotonUnityNetworking.Utilities</Name>
     </ProjectReference>
+    <ProjectReference Include="PhotonWebSocket.csproj">
+      <Project>{CEDF9D07-1717-2826-8506-FA088E48A871}</Project>
+      <Name>PhotonWebSocket</Name>
+    </ProjectReference>
     <ProjectReference Include="PhotonRealtime.csproj">
       <Project>{1BC705F5-6CAA-D259-92E5-441F5C9A132B}</Project>
       <Name>PhotonRealtime</Name>
@@ -688,6 +688,10 @@
       <Project>{7573D398-07AD-5390-9205-EE6457A1EC0F}</Project>
       <Name>PhotonUnityNetworking</Name>
     </ProjectReference>
+    <ProjectReference Include="PhotonChat.csproj">
+      <Project>{755DC2F2-8F08-3D6B-D10C-090F227D55E8}</Project>
+      <Name>PhotonChat</Name>
+    </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.Culling.Editor.csproj">
       <Project>{F0224759-6F8C-A608-9969-D4619C102E0A}</Project>
       <Name>PhotonUnityNetworking.Utilities.Culling.Editor</Name>
@@ -695,10 +699,6 @@
     <ProjectReference Include="PhotonUnityNetworking.Editor.csproj">
       <Project>{5922B90D-58D9-1EFB-C4F1-7D83CDD7008D}</Project>
       <Name>PhotonUnityNetworking.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonChat.csproj">
-      <Project>{755DC2F2-8F08-3D6B-D10C-090F227D55E8}</Project>
-      <Name>PhotonChat</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
