@@ -132,19 +132,34 @@ public class ChatManager : MonoBehaviour, IChatClientListener
     {
         //senders = 사용유저
         //messages = 내용
-        for (int i = 0; i < messages.Length; i++)
+
+        //All
+        if (banManager.GetBanPlayer() == null)
         {
-            if (senders[i] != banManager.GetBanPlayer().NickName)
+            for (int i = 0; i < messages.Length; i++)
             {
                 AddLine(string.Format("{0} : {1}", senders[i], messages[i].ToString()));
-
             }
-            else
-            {
-                AddLine("채팅이 차단되었습니다.");
-            }
-
         }
+        else
+        {
+            for (int i = 0; i < messages.Length; i++)
+            {
+                Debug.Log(senders[i]+"///"+ banManager.GetBanPlayer().NickName);
+                if (senders[i] != banManager.GetBanPlayer().NickName)
+                {
+                    AddLine(string.Format("{0} : {1}", senders[i], messages[i].ToString()));
+
+                }
+                else
+                {
+                    AddLine("채팅이 차단되었습니다.");
+                }
+
+            }
+        }
+
+           
     }
 
     //채팅

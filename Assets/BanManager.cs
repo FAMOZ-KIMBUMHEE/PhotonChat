@@ -17,7 +17,8 @@ public class BanManager : MonoBehaviour
         {
             beforePlayerListLength = PhotonNetwork.PlayerList.Length;
             List<string> playerNameList = new List<string>();
-            foreach(var player in PhotonNetwork.PlayerList)
+            playerNameList.Add("All");
+            foreach (var player in PhotonNetwork.PlayerList)
             {
                 playerNameList.Add(player.ActorNumber.ToString());
             }
@@ -28,6 +29,14 @@ public class BanManager : MonoBehaviour
 
     public Player GetBanPlayer()
     {
-        return PhotonNetwork.PlayerList[dropdown.value];
+        //All
+        if(dropdown.value == 0)
+        {
+            return null;
+        }
+        else
+        {
+            return PhotonNetwork.PlayerList[dropdown.value-1];
+        }
     }
 }
